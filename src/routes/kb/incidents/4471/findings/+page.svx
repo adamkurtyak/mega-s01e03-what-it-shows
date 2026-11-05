@@ -1,0 +1,29 @@
+---
+layout: runbook
+title: '#4471 · two date failures hidden in one ticket'
+owner: Adam Kurtyak
+status: proposed
+reviewed: 2026-11-05
+signature: Adam Kurtyak
+---
+
+<script>
+  import Findings4471 from '#lib/kb/Findings4471.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+Ticket #4471 was marked as one known parser issue, but the tenant directory and booking-form
+configuration show two causes. Counts below use unique report IDs because the ticket export's
+pages overlap.
+
+<Findings4471 />
+
+## What to change
+
+1. Parse numeric dates in the tenant's locale order, or accept only an unambiguous format.
+2. Make booking-v3's hint match the tenant locale and parse the value in that same order.
+
+The desk should split the 33 booking-v3 hint reports from #4471. The remaining 379 reports
+belong to the shared parser failure already represented by #4471.
+
+<RenderStamp {signature} />

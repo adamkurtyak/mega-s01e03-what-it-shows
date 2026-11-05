@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>#4471 · two date failures hidden in one ticket</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.55; }
+    body { max-width: 64rem; margin: 3rem auto; padding: 0 1.25rem; }
+    .meta, .stamp { color: #777; }
+    table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
+    th, td { border: 1px solid #9998; padding: .65rem; text-align: left; vertical-align: top; }
+    th { background: #8882; }
+    code { font-family: ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="meta">Support knowledge base · proposed · reviewed 2026-11-05 · owner Adam Kurtyak</p>
+    <h1>#4471 · two date failures hidden in one ticket</h1>
+    <p>Ticket #4471 was marked as one known parser issue, but the tenant directory and booking-form configuration show two causes. Counts use unique report IDs because the ticket export's pages overlap.</p>
+    <p>The export has <strong>427</strong> rows and <strong>412</strong> unique reports. Tenant and form data separate them into <strong>2</strong> causes.</p>
+    <table>
+      <thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead>
+      <tbody>
+        <tr><td>shared parser treats every date as month-first</td><td>379</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td>pending</td></tr>
+        <tr><td>booking-v3 shows a month-first hint to day-first tenants</td><td>33</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td>pending</td></tr>
+      </tbody>
+    </table>
+    <h2>What to change</h2>
+    <ol>
+      <li>Parse numeric dates in the tenant's locale order, or accept only an unambiguous format.</li>
+      <li>Make booking-v3's hint match the tenant locale and parse the value in that same order.</li>
+    </ol>
+    <p>The desk should split the 33 booking-v3 hint reports from #4471. The remaining 379 reports belong to the shared parser failure already represented by #4471.</p>
+    <p class="stamp">desk ref <strong>DR-2F6T-SHYV</strong></p>
+  </main>
+</body>
+</html>
