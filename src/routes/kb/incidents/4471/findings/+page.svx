@@ -16,7 +16,10 @@ Ticket #4471 was marked as one known parser issue, but the tenant directory and 
 configuration show two causes. Counts below use unique report IDs because the ticket export's
 pages overlap.
 
-<Findings4471 />
+<Findings4471
+  parserIssue="https://github.com/adamkurtyak/mega-s01e03-what-it-shows/issues/1"
+  hintIssue="https://github.com/adamkurtyak/mega-s01e03-what-it-shows/issues/2"
+/>
 
 ## What to change
 
