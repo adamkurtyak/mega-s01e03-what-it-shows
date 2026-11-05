@@ -4,7 +4,7 @@ title: '#4471 · two date failures hidden in one ticket'
 owner: Adam Kurtyak
 status: proposed
 reviewed: 2026-11-05
-signature: Adam Kurtyak
+signature: v1.eyJzdWIiOiIzMzIwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM5MDAyODgsImV4cCI6MTc5Mzk4NjY4OH0.4U_p31EkMWXWg5YEkG40HKJyo_8_Hrg9Cv-UuAZ4gtA
 ---
 
 <script>
